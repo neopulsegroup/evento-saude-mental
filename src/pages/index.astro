@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Logo from "../components/Logo.astro";
 import Photo from "../components/Photo.astro";
+import HeroScene from "../components/HeroScene.astro";
+import PeopleScene from "../components/PeopleScene.astro";
 import Header from "../components/Header";
 import HeroBackdrop from "../components/HeroBackdrop";
 import RegistrationForm from "../components/RegistrationForm";
@@ -10,15 +12,16 @@ import Topics from "../components/Topics";
 import Counter from "../components/Counter";
 import Faq from "../components/Faq";
 import { SITE } from "../lib/site";
-import { CalendarDays, MapPin, ArrowRight, Play } from "lucide-react";
+import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
 ---
 <Layout>
   <Header client:load />
   <main id="conteudo">
     <!-- HERO -->
     <section id="home" class="relative isolate overflow-hidden bg-navy-950 pb-16 pt-32 text-white lg:pb-24 lg:pt-40">
-      <div class="absolute inset-0 -z-10 opacity-40"><Photo name="hero.jpg" alt="" eager w={1920} h={1080} /></div>
-      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-900/60"></div>
+      <div class="absolute inset-0 -z-10"><Photo name="hero.jpg" alt="" eager w={1920} h={1080} class="object-[60%_30%]"><HeroScene slot="fallback" /></Photo></div>
+      <div class="absolute inset-0 -z-10 bg-navy-800/55 mix-blend-multiply"></div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/95 via-navy-950/65 to-navy-900/30"></div>
       <HeroBackdrop client:load />
       <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
@@ -48,7 +51,7 @@ import { CalendarDays, MapPin, ArrowRight, Play } from "lucide-react";
       <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-[0.85fr_1fr_0.9fr]">
         <Reveal client:visible>
           <div class="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl">
-            <Photo name="plateia.jpg" alt="Profissionais acompanhando o encontro" w={800} h={1000} />
+            <Photo name="plateia.jpg" alt="Profissionais sorrindo durante o encontro" w={800} h={1000} class="object-[62%_50%]"><PeopleScene slot="fallback" /></Photo>
             <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
             <p class="absolute bottom-6 left-6 text-white"><span class="hand block text-4xl">Pessoas</span><span class="font-display text-xl font-extrabold leading-tight">movem<br />negócios.</span></p>
           </div>
@@ -102,13 +105,14 @@ import { CalendarDays, MapPin, ArrowRight, Play } from "lucide-react";
         <Reveal client:visible delay={0.1}>
           <div class="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
             <Photo name="abraco.jpg" alt="Treinador abraçando um aluno do projeto" w={800} h={1000} />
-            <span class="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-brand text-white shadow-lg" aria-hidden="true"><Play fill="currentColor" /></span>
             <span class="hand absolute bottom-5 right-5 text-3xl text-white">Esporte<br />é futuro.</span>
           </div>
         </Reveal>
-        <Reveal client:visible delay={0.2} className="grid grid-rows-2 gap-4">
-          <div class="relative overflow-hidden rounded-2xl shadow-lg"><Photo name="grupo.jpg" alt="Grupo de crianças do projeto" /><span class="hand absolute bottom-3 right-3 text-xl text-white">Juntos<br />vamos mais longe.</span></div>
-          <div class="overflow-hidden rounded-2xl shadow-lg"><Photo name="bola.jpg" alt="Bola de tênis na quadra" /></div>
+        <Reveal client:visible delay={0.2} className="relative min-h-[26rem]">
+          <div class="absolute inset-0 grid grid-rows-2 gap-4">
+            <div class="relative min-h-0 overflow-hidden rounded-2xl shadow-lg"><Photo name="grupo.jpg" alt="Grupo de crianças do projeto" class="object-[50%_20%]" /><span class="hand absolute bottom-3 right-3 text-xl text-white drop-shadow">Juntos<br />vamos mais longe.</span></div>
+            <div class="min-h-0 overflow-hidden rounded-2xl shadow-lg"><Photo name="bola.jpg" alt="Bola de tênis na quadra" class="origin-[49%_44%] scale-[1.9] object-[49%_44%]" /></div>
+          </div>
         </Reveal>
       </div>
       <Reveal client:visible className="mx-auto mt-10 max-w-6xl px-5">
@@ -123,6 +127,9 @@ import { CalendarDays, MapPin, ArrowRight, Play } from "lucide-react";
           <h2 class="text-2xl font-extrabold text-navy-800">Local e data</h2>
           <p class="mt-4 text-muted"><b class="text-ink">Ponteio, Recife (PE)</b><br /><time datetime="2026-11-03">3 de novembro de 2026</time>, terça-feira · Presencial</p>
           <a class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:underline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ponteio+Recife"><MapPin size={16} /> Ver no mapa</a>
+          <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200 shadow-md">
+            <iframe title="Mapa: Ponteio, Recife (PE)" src="https://www.google.com/maps?q=Ponteio%2C+Recife%2C+PE&output=embed&hl=pt-BR" class="block h-80 w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
         </div>
         <div>
           <h2 class="mb-4 text-2xl font-extrabold text-navy-800">Perguntas frequentes</h2>

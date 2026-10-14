@@ -4,9 +4,12 @@ import { join } from "node:path";
 interface Props { name: string; alt: string; class?: string; eager?: boolean; w?: number; h?: number }
 const { name, alt, class: cls = "", eager = false, w = 1200, h = 800 } = Astro.props;
 const exists = existsSync(join(process.cwd(), "public/images", name));
+const hasFallback = Astro.slots.has("fallback");
 ---
 {exists ? (
   <img src={`/images/${name}`} alt={alt} width={w} height={h} loading={eager ? "eager" : "lazy"} decoding="async" fetchpriority={eager ? "high" : "auto"} class={`h-full w-full object-cover ${cls}`} />
+) : hasFallback ? (
+  <div role="img" aria-label={alt} class={`h-full w-full ${cls}`}><slot name="fallback" /></div>
 ) : (
   <div role="img" aria-label={alt} class={`h-full w-full bg-gradient-to-br from-navy-700 via-navy-800 to-navy-950 ${cls}`}></div>
 )}
