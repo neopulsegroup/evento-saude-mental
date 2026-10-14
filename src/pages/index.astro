@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Logo from "../components/Logo.astro";
+import Photo from "../components/Photo.astro";
+import Header from "../components/Header";
+import HeroBackdrop from "../components/HeroBackdrop";
+import RegistrationForm from "../components/RegistrationForm";
+import Reveal from "../components/Reveal";
+import Topics from "../components/Topics";
+import Counter from "../components/Counter";
+import Faq from "../components/Faq";
+import { SITE } from "../lib/site";
+import { CalendarDays, MapPin, ArrowRight, Play } from "lucide-react";
+---
+<Layout>
+  <Header client:load />
+  <main id="conteudo">
+    <!-- HERO -->
+    <section id="home" class="relative isolate overflow-hidden bg-navy-950 pb-16 pt-32 text-white lg:pb-24 lg:pt-40">
+      <div class="absolute inset-0 -z-10 opacity-40"><Photo name="hero.jpg" alt="" eager w={1920} h={1080} /></div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-900/60"></div>
+      <HeroBackdrop client:load />
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">Encontro de líderes e gestores</p>
+          <h1 class="text-5xl font-extrabold leading-[1.05] sm:text-6xl">O futuro começa com um <span class="text-brand">primeiro passo.</span></h1>
+          <p class="mt-6 max-w-lg text-lg text-white/90">Um encontro exclusivo para líderes e gestores que acreditam que o futuro das empresas começa nas pessoas.</p>
+          <div class="mt-9 flex flex-wrap items-center gap-6">
+            <div class="flex items-center gap-3">
+              <CalendarDays size={34} className="text-brand" aria-hidden />
+              <div><time datetime="2026-11-03" class="block text-sm font-bold">3 de novembro de 2026</time><span class="text-xs text-white/70">Terça-feira</span></div>
+            </div>
+            <span class="hidden h-10 w-px bg-white/25 sm:block"></span>
+            <div class="flex items-center gap-3">
+              <MapPin size={34} className="text-brand" aria-hidden />
+              <div><span class="block text-sm font-bold">Ponteio, Recife</span><span class="text-xs text-white/70">Presencial</span></div>
+            </div>
+          </div>
+        </div>
+        <div id="inscricao" class="rounded-2xl border border-brand/60 bg-navy-900/80 shadow-2xl shadow-brand/10 backdrop-blur-md">
+          <RegistrationForm client:visible endpoint={SITE.formEndpoint} />
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE + TEMAS -->
+    <section id="sobre" class="bg-white py-16 lg:py-20">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-[0.85fr_1fr_0.9fr]">
+        <Reveal client:visible>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl">
+            <Photo name="plateia.jpg" alt="Profissionais acompanhando o encontro" w={800} h={1000} />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+            <p class="absolute bottom-6 left-6 text-white"><span class="hand block text-4xl">Pessoas</span><span class="font-display text-xl font-extrabold leading-tight">movem<br />negócios.</span></p>
+          </div>
+        </Reveal>
+        <Reveal client:visible delay={0.1}>
+          <p class="inline-block rounded-full border border-brand/40 bg-brand/5 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-brand-600">3 de novembro de 2026 | Ponteio, Recife</p>
+          <div class="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
+            <p>No dia <b class="text-ink">3 de novembro</b>, vamos reunir profissionais e decisores para conversar sobre <b class="text-ink">saúde mental</b>, riscos psicossociais, NR-1 e os desafios da gestão de pessoas para 2027, a partir de experiências do Brasil e da Europa.</p>
+            <p>E, neste encontro, <b class="text-ink">cada participação também poderá fazer a diferença fora do ambiente corporativo.</b></p>
+          </div>
+          <span class="mt-6 block h-0.5 w-12 bg-brand"></span>
+        </Reveal>
+        <div id="temas">
+          <h2 class="mb-6 text-xl font-extrabold text-navy-800">Vamos conversar sobre:</h2>
+          <Topics client:visible />
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACTO NÚMEROS -->
+    <section id="impacto" class="relative isolate overflow-hidden bg-navy-900 py-14 text-white">
+      <div class="absolute inset-y-0 right-0 -z-10 w-full opacity-50 lg:w-1/2"><Photo name="menino-tenis.jpg" alt="Criança sorrindo com uma raquete de tênis" /></div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-900 via-navy-900/90 to-transparent"></div>
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-[0.8fr_1.2fr]">
+        <div class="flex gap-8">
+          <div class="border-r border-white/20 pr-8"><Counter client:visible to={125} className="font-display text-5xl font-extrabold text-brand" /><p class="text-xl font-bold">crianças</p><p class="mt-1 text-xs text-white/80">em um projeto social de tênis</p></div>
+          <div><Counter client:visible to={125} className="font-display text-5xl font-extrabold text-brand" /><p class="text-xl font-bold">oportunidades</p><p class="mt-1 text-xs text-white/80">de dar o primeiro passo.</p></div>
+        </div>
+        <div class="max-w-lg">
+          <h2 class="text-xl font-bold">Mais do que um evento, um impacto real.</h2>
+          <p class="mt-3 text-sm leading-relaxed text-white/85">Para muitas crianças, entrar em uma quadra de tênis é mais do que começar a praticar um esporte. É descobrir novas possibilidades, desenvolver confiança, criar vínculos e construir sonhos.</p>
+          <a href="#historia" class="mt-6 inline-flex items-center gap-2 rounded-full border border-brand px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-brand/20">Conheça o projeto <ArrowRight size={14} /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTÓRIA -->
+    <section id="historia" class="bg-white py-16 lg:py-20">
+      <div class="mx-auto grid max-w-6xl gap-8 px-5 lg:grid-cols-[1fr_1.1fr_0.8fr]">
+        <Reveal client:visible>
+          <span class="rounded border border-brand/40 bg-brand/5 px-2 py-1 text-[10px] font-bold uppercase text-brand-600">História de impacto</span>
+          <h2 class="mt-4 text-3xl font-extrabold leading-tight text-navy-800">Mais que um projeto, <span class="text-brand-600">uma transformação.</span></h2>
+          <div class="mt-5 space-y-3 text-sm leading-relaxed text-muted">
+            <p class="font-semibold text-ink">125 crianças, 125 oportunidades de dar o primeiro passo.</p>
+            <p>Para muitas crianças, entrar em uma quadra de tênis é mais do que começar a praticar um esporte. É descobrir novas possibilidades, desenvolver confiança, criar vínculos e construir sonhos.</p>
+            <p>Há quase 40 anos, o projeto <b class="text-ink">Um Saque para a Vida</b> transforma a realidade de crianças e adolescentes de comunidades do Recife por meio do esporte.</p>
+            <p class="hand text-2xl text-navy-700">É aqui que você entra.</p>
+            <p>Ao participar do evento, você poderá adquirir um <b class="text-ink">Passe de Ouro</b> e transformar o valor da sua contribuição em um par de tênis para uma criança que sonha em entrar em quadra.</p>
+          </div>
+        </Reveal>
+        <Reveal client:visible delay={0.1}>
+          <div class="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
+            <Photo name="abraco.jpg" alt="Treinador abraçando um aluno do projeto" w={800} h={1000} />
+            <span class="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-brand text-white shadow-lg" aria-hidden="true"><Play fill="currentColor" /></span>
+            <span class="hand absolute bottom-5 right-5 text-3xl text-white">Esporte<br />é futuro.</span>
+          </div>
+        </Reveal>
+        <Reveal client:visible delay={0.2} className="grid grid-rows-2 gap-4">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg"><Photo name="grupo.jpg" alt="Grupo de crianças do projeto" /><span class="hand absolute bottom-3 right-3 text-xl text-white">Juntos<br />vamos mais longe.</span></div>
+          <div class="overflow-hidden rounded-2xl shadow-lg"><Photo name="bola.jpg" alt="Bola de tênis na quadra" /></div>
+        </Reveal>
+      </div>
+      <Reveal client:visible className="mx-auto mt-10 max-w-6xl px-5">
+        <p class="rounded-2xl bg-navy-900 px-6 py-5 text-center text-sm font-semibold leading-relaxed text-white">Às vezes, tudo o que uma criança precisa para começar a transformar sua história<br class="hidden sm:block" /> é de alguém que a ajude a dar o primeiro passo.</p>
+      </Reveal>
+    </section>
+
+    <!-- LOCAL + FAQ -->
+    <section id="local" class="bg-slate-50 py-16">
+      <div class="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-2">
+        <div>
+          <h2 class="text-2xl font-extrabold text-navy-800">Local e data</h2>
+          <p class="mt-4 text-muted"><b class="text-ink">Ponteio, Recife (PE)</b><br /><time datetime="2026-11-03">3 de novembro de 2026</time>, terça-feira · Presencial</p>
+          <a class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:underline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ponteio+Recife"><MapPin size={16} /> Ver no mapa</a>
+        </div>
+        <div>
+          <h2 class="mb-4 text-2xl font-extrabold text-navy-800">Perguntas frequentes</h2>
+          <Faq client:visible />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-gradient-to-b from-navy-800 to-navy-900 py-14 text-center text-white">
+      <h2 class="text-xl font-bold">Faça parte deste movimento.</h2>
+      <p class="mt-2 text-sm text-white/80">Junte-se a líderes que acreditam no poder das pessoas.</p>
+      <a href="#inscricao" class="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-brand-600 px-9 py-3 text-xs font-bold uppercase tracking-wide shadow-lg shadow-brand/30 transition hover:scale-[1.03]">Garanta sua vaga <ArrowRight size={14} /></a>
+    </section>
+  </main>
+
+  <footer class="bg-navy-950 py-8 text-white">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 sm:flex-row">
+      <Logo />
+      <p class="text-xs text-white/70">Oporto Forte Group · © {new Date().getFullYear()} Todos os direitos reservados.</p>
+      <p class="hand text-lg text-white/80">Pessoas constroem o amanhã.</p>
+    </div>
+  </footer>
+</Layout>

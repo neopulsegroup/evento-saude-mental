@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/inter";
+
+@theme {
+  --font-display: "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --color-navy-950: #030b24;
+  --color-navy-900: #061438;
+  --color-navy-800: #0a1f52;
+  --color-navy-700: #0f2c6e;
+  --color-brand: #1fa2ff;
+  --color-brand-600: #0b7fe0;
+  --color-ink: #0b1b3f;
+  --color-muted: #51607f;
+  --animate-float: float 9s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(30px, -24px, 0) scale(1.08); }
+  }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { font-family: var(--font-sans); color: var(--color-ink); background: #fff; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+.hand { font-family: "Brush Script MT", "Segoe Script", cursive; font-style: italic; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
