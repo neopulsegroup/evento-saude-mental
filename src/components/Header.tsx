@@ -33,16 +33,8 @@ export default function Header() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled || open ? "bg-navy-950/90 py-3 shadow-lg backdrop-blur-md" : "py-5"}`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5">
-        <a href="#home" aria-label="OFG — Oporto Forte Group" className="flex items-center gap-2">
-          <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
-            <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#6fd6ff" /><stop offset="1" stopColor="#1457d9" /></linearGradient></defs>
-            <circle cx="32" cy="32" r="28" fill="url(#hg)" />
-            <path d="M6 24h52M5 32h54M7 40h50M12 48h40" stroke="#fff" strokeOpacity=".75" strokeWidth="2.5" />
-          </svg>
-          <span className="leading-none text-white">
-            <span className="block font-display text-[28px] font-extrabold">OFG</span>
-            <span className="block text-[8px] text-white/80">Oporto Forte Group</span>
-          </span>
+        <a href="#home" aria-label="OFG — Oporto Forte Group" className="flex items-center">
+          <img src="/images/logo-ofg-bandeiras.png" alt="OFG — Oporto Forte Group" width={735} height={310} className="h-14 w-auto" />
         </a>
 
         <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
