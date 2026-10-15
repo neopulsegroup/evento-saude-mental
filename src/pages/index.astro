@@ -48,8 +48,9 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
       </div>
     </section>
 
+    <div class="bg-paper">
     <!-- SOBRE + TEMAS -->
-    <section id="sobre" class="bg-white py-16 lg:py-20">
+    <section id="sobre" class="py-16 lg:py-20">
       <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-[0.85fr_1fr_0.9fr]">
         <Reveal client:visible>
           <div class="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-xl">
@@ -91,7 +92,7 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
     </section>
 
     <!-- HISTÓRIA -->
-    <section id="historia" class="bg-white py-16 lg:py-20">
+    <section id="historia" class="py-16 lg:py-20">
       <div class="mx-auto grid max-w-6xl gap-8 px-5 lg:grid-cols-[1fr_1.1fr_0.8fr]">
         <Reveal client:visible>
           <span class="rounded border border-brand/40 bg-brand/5 px-2 py-1 text-[10px] font-bold uppercase text-brand-600">História de impacto</span>
@@ -123,7 +124,7 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
     </section>
 
     <!-- LOCAL + FAQ -->
-    <section id="local" class="bg-slate-50 py-16">
+    <section id="local" class="py-16">
       <div class="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-2">
         <div>
           <h2 class="text-2xl font-extrabold text-navy-800">Local e data</h2>
@@ -139,6 +140,8 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
         </div>
       </div>
     </section>
+
+    </div>
 
     <!-- CTA -->
     <section class="bg-gradient-to-b from-navy-800 to-navy-900 py-14 text-center text-white">
