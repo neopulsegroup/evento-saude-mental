@@ -18,10 +18,11 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
   <main id="conteudo">
     <!-- HERO -->
     <section id="home" class="relative isolate overflow-hidden bg-navy-950 pb-16 pt-32 text-white lg:pb-24 lg:pt-40">
-      <div class="absolute inset-0 -z-10"><Photo name="hero.jpg" alt="" eager w={1920} h={1080} class="object-[60%_30%]"><HeroScene slot="fallback" /></Photo></div>
-      <div class="absolute inset-0 -z-10 bg-navy-800/55 mix-blend-multiply"></div>
-      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/95 via-navy-950/65 to-navy-900/30"></div>
-      <HeroBackdrop client:load />
+      <div class="absolute inset-0 -z-10">
+        <video id="hero-video" class="h-full w-full object-cover object-[60%_30%]" src="/videos/hero.mp4" poster="/images/hero.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+      </div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/85 via-navy-950/35 to-transparent"></div>
+      <div class="opacity-40"><HeroBackdrop client:load /></div>
       <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">Encontro de líderes e gestores</p>
@@ -152,4 +153,9 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
       <p class="hand text-lg text-white/80">Pessoas constroem o amanhã.</p>
     </div>
   </footer>
+  <script>
+    // Respect users who prefer reduced motion: keep the poster, don't autoplay.
+    const v = document.getElementById("hero-video") as HTMLVideoElement | null;
+    if (v && window.matchMedia("(prefers-reduced-motion: reduce)").matches) v.pause();
+  </script>
 </Layout>
