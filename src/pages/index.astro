@@ -6,6 +6,7 @@ import PeopleScene from "../components/PeopleScene.astro";
 import Header from "../components/Header";
 import HeroBackdrop from "../components/HeroBackdrop";
 import RegistrationForm from "../components/RegistrationForm";
+import { ShineBorder } from "../components/ShineBorder";
 import Reveal from "../components/Reveal";
 import Topics from "../components/Topics";
 import Counter from "../components/Counter";
@@ -40,7 +41,8 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
             </div>
           </div>
         </div>
-        <div id="inscricao" class="rounded-2xl border border-brand/60 bg-navy-900/80 shadow-2xl shadow-brand/10 backdrop-blur-md">
+        <div id="inscricao" class="relative rounded-2xl border border-white/10 bg-navy-900/80 shadow-2xl shadow-brand/10 backdrop-blur-md">
+          <ShineBorder client:load style={{ borderRadius: "1rem" }} borderWidth={2} duration={8} shineColor={["#1fa2ff", "#7fe0ff", "#0b7fe0"]} />
           <RegistrationForm client:visible endpoint={SITE.formEndpoint} />
         </div>
       </div>

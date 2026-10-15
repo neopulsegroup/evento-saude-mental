@@ -20,6 +20,16 @@
   }
 }
 
+/* "inline" so var(--duration) resolves on the element, not at :root (Magic UI Shine Border). */
+@theme inline {
+  --animate-shine: shine var(--duration) infinite linear;
+  @keyframes shine {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    to { background-position: 0% 0%; }
+  }
+}
+
 html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 body { font-family: var(--font-sans); color: var(--color-ink); background: #fff; -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
