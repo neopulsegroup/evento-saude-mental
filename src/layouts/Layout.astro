@@ -20,7 +20,7 @@ const jsonLd = [
     location: {
       "@type": "Place",
       name: SITE.venue,
-      address: { "@type": "PostalAddress", addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
+      address: { "@type": "PostalAddress", streetAddress: `${SITE.street}, ${SITE.district}`, postalCode: SITE.postalCode, addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
     },
     organizer: { "@type": "Organization", name: "Oporto Forte Group", url: "https://oportoforte.com" },
     offers: { "@type": "Offer", url: canonical, availability: "https://schema.org/InStock", price: "0", priceCurrency: "BRL" },

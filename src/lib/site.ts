@@ -4,10 +4,14 @@ export const SITE = {
   url: "https://eventorecife.oportoforte.com",
   title: "Encontro de Líderes e Gestores em Recife | 3 de novembro de 2026 | OFG",
   description:
-    "Encontro exclusivo em Recife (Ponteio, 3 de novembro de 2026) sobre saúde mental, riscos psicossociais, NR-1 e gestão de pessoas, com experiências do Brasil e da Europa. Garanta sua vaga.",
+    "Encontro exclusivo em Recife (Hub Plural Espinheiro, 3 de novembro de 2026) sobre saúde mental, riscos psicossociais, NR-1 e gestão de pessoas, com experiências do Brasil e da Europa. Garanta sua vaga.",
   startDate: "2026-11-03T09:00:00-03:00",
   endDate: "2026-11-03T18:00:00-03:00",
-  venue: "Ponteio",
+  venue: "Hub Plural Espinheiro",
+  street: "Av. Gov. Agamenon Magalhães, 2939",
+  district: "Espinheiro",
+  postalCode: "52021-170",
+  mapsQuery: "Hub Plural Espinheiro, Av. Gov. Agamenon Magalhães, 2939 - Espinheiro, Recife - PE, 52021-170",
   city: "Recife",
   region: "PE",
   country: "BR",
@@ -24,7 +28,7 @@ export const TOPICS = [
 ] as const;
 
 export const FAQ = [
-  { q: "Quando e onde acontece o encontro?", a: "No dia 3 de novembro de 2026 (terça-feira), no Ponteio, em Recife, de forma presencial." },
+  { q: "Quando e onde acontece o encontro?", a: "No dia 3 de novembro de 2026 (terça-feira), no Hub Plural Espinheiro (Av. Gov. Agamenon Magalhães, 2939, Espinheiro), em Recife, de forma presencial." },
   { q: "Para quem é o evento?", a: "Para líderes, gestores e decisores que acreditam que o futuro das empresas começa nas pessoas." },
   { q: "Quais temas serão abordados?", a: "Saúde mental e burnout, segurança psicológica, NR-1 e prevenção de riscos psicossociais, e experiências de gestão de pessoas do Brasil e da Europa." },
   { q: "Como minha participação ajuda o projeto social?", a: "Ao participar, você poderá adquirir um Passe de Ouro e transformar o valor da sua contribuição em um par de tênis para uma criança do projeto Um Saque para a Vida." },
