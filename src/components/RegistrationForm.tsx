@@ -75,7 +75,7 @@ export default function RegistrationForm({ endpoint }: { endpoint: string }) {
         <CheckCircle2 size={56} className="text-brand" />
         <h3 className="text-2xl font-bold">Inscrição recebida!</h3>
         <p className="text-sm text-white/80">Obrigado, {values.nome.split(" ")[0]}. Enviaremos os detalhes do encontro para <b>{values.email}</b>.</p>
-        <p className="inline-flex items-center gap-2 text-sm text-white/70"><CalendarCheck size={16} /> 3 de novembro de 2026 · Ponteio, Recife</p>
+        <p className="inline-flex items-center gap-2 text-sm text-white/70"><CalendarCheck size={16} /> 3 de novembro de 2026 · Hub Plural Espinheiro, Recife</p>
       </div>
     );
 
